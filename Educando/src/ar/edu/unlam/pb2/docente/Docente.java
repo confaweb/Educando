@@ -1,14 +1,31 @@
 package ar.edu.unlam.pb2.docente;
 
-public class Docente {
+import ar.edu.unlam.pb2.competencia.Grado;
+import ar.edu.unlam.pb2.interfaces.Competencia;
 
-	public Docente(String nOMBRE_DEL_DOCENTE) {
-		// TODO Auto-generated constructor stub
+public class Docente implements Competencia {
+
+	private String nombreDelDocente;
+	private Integer dni;
+
+	public Docente(String nombreDelDocente, Integer dni) {
+		this.setNombreDelDocente(nombreDelDocente);
+		this.dni = dni;
 	}
 
-	public void agregarCompetencia(String cuarto) {
+	public String getNombreDelDocente() {
+		return nombreDelDocente;
+	}
+
+	public void setNombreDelDocente(String nombreDelDocente) {
+		this.nombreDelDocente = nombreDelDocente;
+
+	}
+
+	@Override
+	public void agregarCompetencia(Grado grado) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

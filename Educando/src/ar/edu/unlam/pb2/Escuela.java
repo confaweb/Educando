@@ -1,8 +1,11 @@
 package ar.edu.unlam.pb2;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
+import ar.edu.unlam.pb2.alumno.Alumno;
 import ar.edu.unlam.pb2.alumno.AlumnoDePrimaria;
 import ar.edu.unlam.pb2.curso.Curso;
 import ar.edu.unlam.pb2.curso.GradoPrimaria;
@@ -11,11 +14,13 @@ public class Escuela {
 	private String nombreDeLaEscuela;
 	private Set <Curso>gradosOfertadosPrimaria;
 	private Set <Curso>cursosOfertadosSecundaria;
+	private Map<AlumnoDePrimaria,Integer>inscriptosPorCicloLectivo;
 
 	public Escuela(String nombreDeLaEscuela) {
 		this.nombreDeLaEscuela=nombreDeLaEscuela;
 		this.cursosOfertadosSecundaria=new HashSet<Curso>();
 		this.gradosOfertadosPrimaria=new HashSet<Curso>();
+		this.inscriptosPorCicloLectivo=new HashMap<AlumnoDePrimaria,Integer>();
 	}
 	public String getNombreDeLaEscuela() {
 		return nombreDeLaEscuela;
@@ -26,12 +31,12 @@ public class Escuela {
 	}
 	public Boolean crearCurso(Curso curso)  {
 		Boolean cursoCreado=false;
-		gradosOfertadosPrimaria.add(curso);
+		cursoCreado=gradosOfertadosPrimaria.add(curso);
 		return cursoCreado;
 	}
 
 	public void inscribir(AlumnoDePrimaria alumno, Integer cL) {
-		// TODO Auto-generated method stub
+		inscriptosPorCicloLectivo.put(alumno,cL);
 		
 	}
 	

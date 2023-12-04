@@ -2,10 +2,12 @@ package ar.edu.unlam.pb2.alumno;
 
 import java.time.LocalDate;
 
-public class AlumnoDePrimaria {
+public class AlumnoDePrimaria extends Alumno {
 
-	public AlumnoDePrimaria(Integer dNI, String nOMBRE_DEL_ESTUDIANTE, LocalDate fECHA_DE_NACIMIENTO) {
-		// TODO Auto-generated constructor stub
+	public AlumnoDePrimaria(Integer dni, String nombreDelAlumno, LocalDate fechaDeNac) {
+		super(dni, nombreDelAlumno, fechaDeNac);
+		
+		
 	}
 
 	public void asistir(LocalDate now) {

@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 import ar.edu.unlam.pb2.Escuela;
+import ar.edu.unlam.pb2.alumno.Alumno;
 import ar.edu.unlam.pb2.alumno.AlumnoDePrimaria;
 import ar.edu.unlam.pb2.alumno.AlumnoDeSecundaria;
 import ar.edu.unlam.pb2.competencia.Anio;
@@ -43,7 +44,7 @@ public class TestCases {
 		final Integer CL = 2023, EDAD = 10;		
 		final String NOMBRE_DEL_ESTUDIANTE = "Fiorella Fonteveccia";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2013-01-23");
-		final Integer DNI = 49354752;
+		final Integer DNI = 49354752,DNI_DOCENTE=11111;
 		
 		
 		final String NOMBRE_DEL_DOCENTE = "Susana";
@@ -56,11 +57,11 @@ public class TestCases {
 		unlam.crearCurso(cuartoGrado);
 		
 		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
-		unlam.inscribir(alumno, CL);
+		unlam.inscribir(alumno, CL);//lanza SinCursosDisponiblesException si 
 		
-		Docente susana = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente susana = new Docente(NOMBRE_DEL_DOCENTE, DNI_DOCENTE);
 		susana.agregarCompetencia(Grado.CUARTO);
-		cuartoGrado.setDocente(susana);
+		cuartoGrado.setDocente(susana);// lanza DocenteNoTieneCompetencia
 		
 		alumno.asistir(LocalDate.now());
 		
@@ -81,7 +82,7 @@ public class TestCases {
 		
 		final String NOMBRE_DEL_ESTUDIANTE = "Fiorella Fonteveccia";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2013-01-23");
-		final Integer DNI = 49354752;
+		final Integer DNI = 49354752,DNI_DOCENTE=11111;
 			
 		// Ejecucion
 		Escuela unlam = new Escuela(NOMBRE_DE_LA_ESCUELA);
@@ -104,7 +105,7 @@ public class TestCases {
 		
 		final String NOMBRE_DEL_ESTUDIANTE = "Camila Martens";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2007-07-14");
-		final Integer DNI = 45312546;
+		final Integer DNI = 45312546,DNI_DOCENTE=11111;
 		
 		// Ejecucion
 		Escuela unlam = new Escuela(NOMBRE_DE_LA_ESCUELA);
@@ -131,7 +132,7 @@ public class TestCases {
 		
 		final String NOMBRE_DEL_ESTUDIANTE = "Fiorella Fonteveccia";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2013-01-23");
-		final Integer DNI = 49354752;
+		final Integer DNI = 49354752,DNI_DOCENTE=11111;
 		
 		final String NOMBRE_DEL_DOCENTE = "Susana";
 		
@@ -150,7 +151,7 @@ public class TestCases {
 		AlumnoDePrimaria alumno = new AlumnoDePrimaria(DNI, NOMBRE_DEL_ESTUDIANTE, FECHA_DE_NACIMIENTO);
 		unlam.inscribir(alumno, CL);
 
-		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE);
+		Docente lorusso = new Docente(NOMBRE_DEL_DOCENTE, DNI_DOCENTE);
 		lorusso.agregarCompetencia(Grado.CUARTO);
 		cuartoGrado.setaCargo(lorusso);				
 		
@@ -175,7 +176,7 @@ public class TestCases {
 		
 		final String NOMBRE_DEL_ESTUDIANTE = "Fiorella Fonteveccia";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2013-01-23");
-		final Integer DNI = 49354752;
+		final Integer DNI = 49354752,DNI_DOCENTE=11111;
 		
 		final String NOMBRE_DEL_DOCENTE = "Susana";
 		
@@ -222,7 +223,7 @@ public class TestCases {
 		
 		final String NOMBRE_DEL_ESTUDIANTE = "Camila Martens";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2007-07-14");
-		final Integer DNI = 45312546;
+		final Integer DNI = 45312546,DNI_DOCENTE=11111;
 		
 		final String MATERIA = "Biologia"; 
 		
@@ -266,7 +267,7 @@ public class TestCases {
 		
 		final String NOMBRE_DEL_ESTUDIANTE = "Camila Martens";
 		final LocalDate FECHA_DE_NACIMIENTO = LocalDate.parse("2007-07-14");
-		final Integer DNI = 45312546;
+		final Integer DNI = 45312546,DNI_DOCENTE=11111;
 		
 		final String MATERIA = "Biologia"; 
 		
